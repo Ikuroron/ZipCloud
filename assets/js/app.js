@@ -16,6 +16,9 @@ $(function () {
 
     // 検索ボタンがクリックされたら
     $('#search-btn').click (() => {
+
+        $('#loading').show();
+
         // 入力された郵便番号を取得
         let val = $('#search-word').val()
         // alert(val)
@@ -36,6 +39,8 @@ $(function () {
             console.log(data.results[0].address2)
             console.log(data.results[0].address3)
 
+            $('#loading').hide();
+
             $("#prefecture").text(data.results[0].address1)
             $("#city").text(data.results[0].address2)
             $("#address").text(data.results[0].address3)
@@ -45,6 +50,8 @@ $(function () {
             
             
         })
+
+
         
     })
 })
